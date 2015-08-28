@@ -3,12 +3,16 @@
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>City, State</th>
+    <th>Genres</th>
+    <th>Number of Members</th>
+    <th>Event Date <th>
   </tr>
   <% @bands.each do |band| %>
     <tr>
       <td><%= band.name %></td>
-      <td><%= band.city %>, <%= band.state%> </td>
+      <td><%= band.genres %></td>
+      <td> <%=band.num_members%></td>
+      <td> <%= band.event_date %></td>
     </tr>
   <% end %>
 </table>

@@ -1,0 +1,21 @@
+<h2>Add a Band</h2>
+<form action="/band/new" method="post">
+  <input type="hidden" name="venue_id" value="<%=@venue.id%>">
+
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" name="name" placeholder="e.g. Red Hot Chili Peppers">
+
+    <label for="genres">Genres:</label>
+    <input type="text" class="form-control" name="genres" placeholder="e.g. Rock">
+
+    <label for="num_members">Number of Members:</label>
+    <input type="text" class="form-control" name="num_members" placeholder="e.g. 4">
+
+    <label for="event_date">Event Date:</label>
+    <input type="text" class="form-control" name="event_date" placeholder="e.g. yyyy/mm/dd">
+
+    <br><br>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+<br></br>
+<a href="/" class="btn btn-primary">Home</a>
