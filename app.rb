@@ -21,3 +21,14 @@ post('/venues') do
   Venue.create({name: name, city: city, state: state})
   redirect('/')
 end
+
+get('/venues/:id') do
+  @venue = Venue.find(params['id'].to_i)
+  @bands = @venue.bands
+  erb(:venue)
+end
+
+get('/venue/:id/band/new') do
+  @venue = Venue.find(params['id'].to_i)
+  erb(:band_form)
+end

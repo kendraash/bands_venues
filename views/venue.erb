@@ -1,0 +1,17 @@
+<h2 ><%= @venue.name %></h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>City, State</th>
+  </tr>
+  <% @bands.each do |band| %>
+    <tr>
+      <td><%= band.name %></td>
+      <td><%= band.city %>, <%= band.state%> </td>
+    </tr>
+  <% end %>
+</table>
+
+  <a href="/venue/<%=@venue.id%>/band/new" class="btn btn-warning">Add a Band</a>
+  <a href="/" class='btn btn-primary'>Home</a>

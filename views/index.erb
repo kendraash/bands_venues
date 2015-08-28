@@ -3,7 +3,7 @@
     <ul class="list-unstyled">
       <% @venues.each do |venue| %>
       <li>
-        <a href="/venues/<%=venue.id%>"><%=venue.name%>|<%=venue.city%>, <%=venue.state%></a>
+        <a href="/venues/<%=venue.id%>"><%=venue.name%> | <%=venue.city%>, <%=venue.state%></a>
       </li>
       <%end%>
     </ul>
