@@ -8,5 +8,10 @@ describe(Band) do
       new_venue = new_band.venues.create({name: 'Suprise', city: 'Boise', state: 'ID'})
       expect(new_band.venues).to(eq([new_venue]))
     end
+
+    it("validates presence of a band name") do
+      band = Band.new({:name => ""})
+      expect(band.save()).to(eq(false))
+    end
   end
 end
