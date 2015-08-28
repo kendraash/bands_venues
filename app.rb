@@ -40,9 +40,11 @@ post('/band/new') do
   genres = params['genres']
   num_members = params['num_members']
   event_date = params['event_date']
-
-  band =Band.create({name: name, genres: genres, num_members: num_members, event_date: event_date})
-  venue.bands.push(band)
+  venue.bands.update({event_date: event_date})
+  band =Band.create({name: name, genres: genres, num_members: num_members})
+  if(band.save())
+    venue.bands.push(band)
+  end
   redirect("/venues/#{venue.id}")
 end
 

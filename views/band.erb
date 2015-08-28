@@ -4,12 +4,13 @@
   <tr>
     <th>Name</th>
     <th>City, State</th>
+    <th>Event Date</th>
   </tr>
   <% @venues.each do |venue| %>
     <tr>
       <td><%= venue.name %></td>
       <td><%= venue.city %>, <%= venue.state%> </td>
-
+      <td> <%=venue.event_date %></td>
     </tr>
   <% end %>
 </table>
