@@ -1,0 +1,19 @@
+<h2 ><%= @band.name %></h2>
+<h4><strong> List of Venues </strong></h4>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>City, State</th>
+  </tr>
+  <% @venues.each do |venue| %>
+    <tr>
+      <td><%= venue.name %></td>
+      <td><%= venue.city %>, <%= venue.state%> </td>
+
+    </tr>
+  <% end %>
+</table>
+
+  <a href="/" class='btn btn-primary'>Home</a>
+  <a href="/band/<%=@band.id%>/edit" class="btn btn-warning">Edit Band</a>
+  <a href="/band/<%=@band.id%>/delete" class='btn btn-danger'>Delete Band</a>

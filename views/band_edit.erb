@@ -1,0 +1,20 @@
+<h1>Edit: <%=@band.name%></h1>
+
+<form class="form-group" action="/band/<%=@band.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+
+    <label for="name">Name</label>
+    <input type="text" name="name" class="form-control" value='<%=@band.name%>' placeholer="e.g. Red hot chili peppers">
+
+    <label for="genres">Category</label>
+    <input type="text" name="genres" class="form-control" value='<%=@band.genres%>' placeholer="e.g. Rock">
+
+    <label for="num_members">Category</label>
+    <input type="text" name="num_members" class="form-control" value='<%=@band.num_members%>' placeholer="e.g. Rock">
+
+    <button type="submit" class="btn btn-primary">Update</button>
+
+    <a href="/" class='btn btn-primary'>Home</a>
+
+</form>

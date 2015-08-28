@@ -40,9 +40,41 @@ post('/band/new') do
   genres = params['genres']
   num_members = params['num_members']
   event_date = params['event_date']
-  binding.pry
 
   band =Band.create({name: name, genres: genres, num_members: num_members, event_date: event_date})
   venue.bands.push(band)
   redirect("/venues/#{venue.id}")
+end
+
+get('/bands') do
+  @bands = Band.all()
+  erb(:bands)
+end
+
+get('/bands/:id') do
+  @band = Band.find(params['id'].to_i)
+  @venues = @band.venues
+  erb(:band)
+end
+
+get('/band/:id/edit') do
+  @band = Band.find(params['id'].to_i)
+  erb(:band_edit)
+end
+
+get('/band/:id/delete') do
+  @band = Band.find(params['id'].to_i)
+  @venue = Venue.find(@band.venues.first.id)
+  @venue.bands.destroy(@band)
+  @band.destroy
+  redirect("/bands")
+end
+
+patch('/band/:id') do
+  @band = Band.find(params['id'].to_i)
+  name = params['name']
+  genres = params['genres']
+  num_members = params['num_members']
+  @band.update({name: name, genres: genres, num_members: num_members})
+  redirect("/bands/#{@band.id}")
 end
