@@ -34,16 +34,17 @@ get('/venue/:id/band/new') do
 end
 
 
-post('/band/new') do
-  venue = Venue.find(params['venue_id'].to_i)
+post('/venue/:id/band/new') do
+  venue = Venue.find(params['id'].to_i)
   name = params['name']
   genres = params['genres']
   num_members = params['num_members']
   event_date = params['event_date']
-  venue.bands.update({event_date: event_date})
   band =Band.create({name: name, genres: genres, num_members: num_members})
   if(band.save())
     venue.bands.push(band)
+    venue.update({event_date: event_date})
+
   end
   redirect("/venues/#{venue.id}")
 end
@@ -55,7 +56,7 @@ end
 
 get('/bands/:id') do
   @band = Band.find(params['id'].to_i)
-  @venues = @band.venues
+  @venues = Band.find_venues(@band.name)
   erb(:band)
 end
 

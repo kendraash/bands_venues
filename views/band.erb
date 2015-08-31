@@ -10,7 +10,7 @@
     <tr>
       <td><%= venue.name %></td>
       <td><%= venue.city %>, <%= venue.state%> </td>
-      <td> <%=venue.event_date %></td>
+      <td><%=Date.parse(venue.event_date.to_s).strftime('%B %d, %Y') %></td>
     </tr>
   <% end %>
 </table>

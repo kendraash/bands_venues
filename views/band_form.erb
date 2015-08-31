@@ -1,7 +1,5 @@
 <h2>Add a Band</h2>
-<form action="/band/new" method="post">
-  <input type="hidden" name="venue_id" value="<%=@venue.id%>">
-
+<form action="/venue/<%=@venue.id%>/band/new" method="post">
     <label for="name">Name:</label>
     <input type="text" class="form-control" name="name" placeholder="e.g. Red Hot Chili Peppers">
 
