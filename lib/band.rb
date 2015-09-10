@@ -5,8 +5,9 @@ class Band < ActiveRecord::Base
 
     private
       define_method(:uppercase_first_letter) do
-        self.name = name.downcase!().try(:split, " ").map(&:capitalize).join(' ') || name.dowcase!().capitalize!()
-      end
+        band_name = self.name.downcase()
+        band_name = band_name.try(:split, " ").map(&:capitalize).join(' ') || band_name.dowcase!().capitalize!()
+        self.name = band_name      end
 
       define_singleton_method(:find_venues) do |band_name|
         venues = Venue.all

@@ -13,5 +13,9 @@ describe(Band) do
       band = Band.new({:name => ""})
       expect(band.save()).to(eq(false))
     end
+    it('returns name of a band title cased') do
+      new_band = Band.create({name: 'RED hot Chilli peppers'})
+      expect(new_band.name).to(eq("Red Hot Chilli Peppers"))
+    end
   end
 end

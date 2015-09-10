@@ -6,9 +6,8 @@ class Venue < ActiveRecord::Base
   private
 
     define_method(:uppercase_first_letter) do
-      
-      else
-        self.name = name.downcase!().try(:split, " ").map(&:capitalize).join(' ') || name.dowcase!().capitalize!()
-      end
+      venue_name = self.name.downcase()
+      venue_name = venue_name.try(:split, " ").map(&:capitalize).join(' ') || band_name.dowcase!().capitalize!()
+      self.name = venue_name
     end
 end
